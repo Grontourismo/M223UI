@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="358.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.M223UI.vincent.controller._prefabs.ShowUserController">
+   <children>
+      <TextField fx:id="idTF" alignment="CENTER" disable="true" editable="false" layoutX="254.0" layoutY="90.0" prefHeight="26.0" prefWidth="91.0" />
+      <Label alignment="CENTER" layoutX="214.0" layoutY="36.0" prefHeight="18.0" prefWidth="172.0" text="Userdata" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="294.0" layoutY="72.0" text="ID" />
+      <Label alignment="CENTER" layoutX="273.0" layoutY="125.0" text="Username" />
+      <TextField fx:id="usernameTF" alignment="CENTER" disable="true" editable="false" layoutX="214.0" layoutY="143.0" prefHeight="26.0" prefWidth="172.0" />
+      <Label alignment="CENTER" layoutX="274.0" layoutY="179.0" text="Password" />
+      <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="226.0" layoutY="197.0" />
+      <Button layoutX="245.0" layoutY="254.0" mnemonicParsing="false" onAction="#changePressed" text="Change Password" />
+      <Button layoutX="254.0" layoutY="296.0" mnemonicParsing="false" onAction="#deletePressed" style="-fx-background-color: red;" text="Delete User 🗑">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="errorMsg" alignment="CENTER" layoutX="214.0" layoutY="325.0" prefHeight="18.0" prefWidth="172.0" />
+   </children>
+</AnchorPane>
