@@ -27,7 +27,7 @@ public class ShowUserController {
     }
 
     public void changePressed(ActionEvent actionEvent) {
-        UIManager.changePW();
+        UIManager.changePW(this);
     }
 
     public void deletePressed(ActionEvent actionEvent) {

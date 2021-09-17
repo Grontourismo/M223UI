@@ -1,6 +1,8 @@
 package ch.M223UI.vincent;
 
 import ch.M223UI.vincent.controller.ControllerBase;
+import ch.M223UI.vincent.controller._prefabs.ShowEntriesController;
+import ch.M223UI.vincent.controller._prefabs.ShowUserController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -38,7 +40,11 @@ public class UIManager {
         loadScene(primaryStage, "fxml/home.fxml", "Home");
     }
 
-    public static void changePW() {
-        loadScene(secondaryStage, "fxml/changePW.fxml", "Change Password");
+    public static void showUser() {
+        loadScene(primaryStage, "fxml/home.fxml", "Home").user();
+    }
+
+    public static void changePW(ShowUserController controller) {
+        loadScene(secondaryStage, "fxml/changePW.fxml", "Change Password").init(controller);
     }
 }

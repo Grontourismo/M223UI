@@ -25,9 +25,11 @@ public class ShowEntriesController {
 
     public void init(){
         EntryConnector.getEntries();
-        for(int i = 0; i < Data.entries.length; i++){
-            Entry entry = Data.entries[i];
+        if (Data.entries != null) {
+            for (int i = 0; i < Data.entries.length; i++) {
+                Entry entry = Data.entries[i];
 
+            }
         }
     }
 

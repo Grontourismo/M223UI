@@ -26,7 +26,7 @@ public class HomeController extends ControllerBase{
         }
     }
 
-    public void entries(ActionEvent actionEvent) {
+    public void entries() {
         pane.getChildren().clear();
         try {
             FXMLLoader loader = new FXMLLoader(ShowEntriesController.class.getClassLoader().getResource("fxml/_prefabs/showEntries.fxml"));
@@ -39,7 +39,7 @@ public class HomeController extends ControllerBase{
         }
     }
 
-    public void user(ActionEvent actionEvent) {
+    public void user() {
         pane.getChildren().clear();
         try {
             FXMLLoader loader = new FXMLLoader(ShowUserController.class.getClassLoader().getResource("fxml/_prefabs/showUser.fxml"));

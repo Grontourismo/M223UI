@@ -2,12 +2,16 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="119.0" prefWidth="178.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.M223UI.vincent.controller.ChangePWController">
    <children>
       <PasswordField fx:id="oldPwF" layoutX="15.0" layoutY="14.0" promptText="Old Password" />
       <PasswordField fx:id="newPwF" layoutX="15.0" layoutY="47.0" promptText="New Password" />
-      <Button onAction="#send" layoutX="15.0" layoutY="80.0" mnemonicParsing="false" text="Send" />
+      <Button layoutX="15.0" layoutY="80.0" mnemonicParsing="false" onAction="#send" text="Send" />
+      <Label fx:id="label" layoutX="62.0" layoutY="83.0" prefHeight="18.0" prefWidth="101.0" textFill="RED">
+         <font>
+            <Font size="9.0" />
+         </font></Label>
    </children>
 </AnchorPane>

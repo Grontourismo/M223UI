@@ -157,9 +157,9 @@ public class UserConnector extends Connector{
         return (String) object.get("token");
     }
 
-    public static String update(String oldPW, String newPW) {
+    public static User update(String oldPW, String newPW) {
         final String POST_PARAMS = "{\"oldPassword\": \""+ oldPW +"\", \"newPassword\": \""+ newPW +"\"}";
-        String msg = "";
+        User user = null;
         try {
             URL obj = new URL(url+"/user");
             HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
@@ -185,10 +185,11 @@ public class UserConnector extends Connector{
             in.close();
 
             System.out.println(userJSON);
-            msg = userJSON;
+            Gson gson = new Gson();
+            user = gson.fromJson(userJSON, User.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return msg;
+        return user;
     }
 }
