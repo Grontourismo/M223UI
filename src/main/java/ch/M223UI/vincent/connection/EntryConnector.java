@@ -24,9 +24,6 @@ public class EntryConnector extends Connector{
             connection.setRequestProperty("Authorization", "Bearer "+Data.jwt);
 
             connection.setDoOutput(true);
-            OutputStream os1 = connection.getOutputStream();
-            os1.flush();
-            os1.close();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(
                             connection.getInputStream()));
@@ -39,8 +36,10 @@ public class EntryConnector extends Connector{
             }
             in.close();
             System.out.println(entryJSON);
-            Gson gson = new Gson();
-            Data.entries = gson.fromJson(entryJSON, Entry[].class);
+            if (!entryJSON.equals("[]")){
+                Gson gson = new Gson();
+                Data.entries = gson.fromJson(entryJSON, Entry[].class);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
