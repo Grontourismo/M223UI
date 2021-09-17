@@ -16,7 +16,7 @@
       <Label alignment="CENTER" layoutX="273.0" layoutY="125.0" text="Username" />
       <TextField fx:id="usernameTF" alignment="CENTER" disable="true" editable="false" layoutX="214.0" layoutY="143.0" prefHeight="26.0" prefWidth="172.0" />
       <Label alignment="CENTER" layoutX="274.0" layoutY="179.0" text="Password" />
-      <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="226.0" layoutY="197.0" />
+      <PasswordField fx:id="passwordField" alignment="CENTER" disable="true" editable="false" layoutX="226.0" layoutY="197.0" />
       <Button layoutX="245.0" layoutY="254.0" mnemonicParsing="false" onAction="#changePressed" text="Change Password" />
       <Button layoutX="254.0" layoutY="296.0" mnemonicParsing="false" onAction="#deletePressed" style="-fx-background-color: red;" text="Delete User 🗑">
          <font>

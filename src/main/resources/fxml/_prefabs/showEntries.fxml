@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import tornadofx.control.*?>
+
+<AnchorPane prefHeight="358.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.M223UI.vincent.controller._prefabs.ShowEntriesController">
+    <DateTimePicker fx:id="checkIn" layoutX="114.0" layoutY="57.0" promptText="CheckIn" />
+   <Label alignment="CENTER" layoutX="186.0" layoutY="14.0" prefHeight="26.0" prefWidth="225.0" text="Entries">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <DateTimePicker fx:id="checkOut" layoutX="308.0" layoutY="57.0" promptText="CheckOut" />
+   <ChoiceBox fx:id="category" layoutX="114.0" layoutY="91.0" prefWidth="150.0" />
+   <ChoiceBox fx:id="tag" layoutX="275.0" layoutY="91.0" prefWidth="150.0" />
+   <VBox fx:id="vbox" layoutX="86.0" layoutY="125.0" prefHeight="218.0" prefWidth="428.0" style="-fx-border-color: black;" />
+   <Button onAction="#send" layoutX="438.0" layoutY="90.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="43.0" text="Send" />
+</AnchorPane>

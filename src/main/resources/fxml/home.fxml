@@ -8,16 +8,25 @@
    <children>
       <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-border-color: white white black white ;">
          <children>
-            <Button onAction="#entries" layoutX="6.0" layoutY="2.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="72.0" text="Entries" />
-            <Button onAction="#user" layoutX="552.0" layoutY="2.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="42.0" text="👤">
+            <Button layoutX="6.0" layoutY="2.0" mnemonicParsing="false" onAction="#entries" prefHeight="37.0" prefWidth="72.0" text="Entries" />
+            <Button layoutX="552.0" layoutY="2.0" mnemonicParsing="false" onAction="#user" prefHeight="38.0" prefWidth="42.0" text="👤">
                <font>
                   <Font size="17.0" />
                </font>
+               <contextMenu>
+                  <ContextMenu>
+                     <items>
+                        <Menu onAction="#logout" text="Logout">
+                        </Menu>
+                     </items>
+                  </ContextMenu>
+               </contextMenu>
             </Button>
-            <Button onAction="#categories" layoutX="87.0" layoutY="2.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="72.0" text="Categories" />
-            <Button onAction="#tags" layoutX="167.0" layoutY="2.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="72.0" text="Tags" />
+            <Button layoutX="87.0" layoutY="2.0" mnemonicParsing="false" onAction="#categories" prefHeight="38.0" prefWidth="72.0" text="Categories" />
+            <Button layoutX="167.0" layoutY="2.0" mnemonicParsing="false" onAction="#tags" prefHeight="38.0" prefWidth="72.0" text="Tags" />
+            <Button layoutX="488.0" layoutY="2.0" mnemonicParsing="false" onAction="#logout" prefHeight="38.0" prefWidth="57.0" text="Logout" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="43.0" prefHeight="358.0" prefWidth="600.0" />
+      <AnchorPane fx:id="pane" layoutY="43.0" prefHeight="358.0" prefWidth="600.0" />
    </children>
 </AnchorPane>

@@ -37,4 +37,8 @@ public class UIManager {
     public static void home() {
         loadScene(primaryStage, "fxml/home.fxml", "Home");
     }
+
+    public static void changePW() {
+        loadScene(secondaryStage, "fxml/changePW.fxml", "Change Password");
+    }
 }

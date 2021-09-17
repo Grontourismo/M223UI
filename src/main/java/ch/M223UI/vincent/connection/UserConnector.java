@@ -23,7 +23,7 @@ public class UserConnector extends Connector{
             HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
             postConnection.setRequestMethod("DELETE");
             postConnection.setRequestProperty("Content-Type", "application/json");
-            postConnection.setRequestProperty("Authorization", Data.jwt);
+            postConnection.setRequestProperty("Authorization", "Bearer "+Data.jwt);
 
             postConnection.setDoOutput(true);
             OutputStream os = postConnection.getOutputStream();
@@ -84,6 +84,36 @@ public class UserConnector extends Connector{
         return user;
     }
 
+    public static User getUserData(){
+        User[] user = null;
+        try {
+            URL obj = new URL(url+"/user");
+            HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
+            postConnection.setRequestMethod("GET");
+            postConnection.setRequestProperty("Content-Type", "application/json");
+            postConnection.setRequestProperty("Authorization", "Bearer "+Data.jwt);
+
+            postConnection.setDoOutput(true);
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(
+                            postConnection.getInputStream()));
+            String inputLine;
+
+            String userJson = null;
+            while ((inputLine = in.readLine()) != null) {
+                userJson = inputLine;
+            }
+            System.out.println(userJson);
+
+            Gson gson = new Gson();
+            user = gson.fromJson(userJson, User[].class);
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return user[0];
+    }
+
     public static String login(String username, String password){
         final String POST_PARAMS = "{\"username\": \""+ username +"\", \"password\": \""+ password +"\"}";
         String msg = "";
@@ -125,5 +155,40 @@ public class UserConnector extends Connector{
         JSONParser parser = new JSONParser();
         JSONObject object = (JSONObject) parser.parse(token);
         return (String) object.get("token");
+    }
+
+    public static String update(String oldPW, String newPW) {
+        final String POST_PARAMS = "{\"oldPassword\": \""+ oldPW +"\", \"newPassword\": \""+ newPW +"\"}";
+        String msg = "";
+        try {
+            URL obj = new URL(url+"/user");
+            HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
+            postConnection.setRequestMethod("PUT");
+            postConnection.setRequestProperty("Content-Type", "application/json");
+            postConnection.setRequestProperty("Authorization", "Bearer "+Data.jwt);
+
+            postConnection.setDoOutput(true);
+            OutputStream os1 = postConnection.getOutputStream();
+            os1.write(POST_PARAMS.getBytes());
+            os1.flush();
+            os1.close();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(
+                            postConnection.getInputStream()));
+            String inputLine;
+
+
+            String userJSON="";
+            while ((inputLine = in.readLine()) != null){
+                userJSON = inputLine;
+            }
+            in.close();
+
+            System.out.println(userJSON);
+            msg = userJSON;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return msg;
     }
 }
